@@ -5,12 +5,17 @@
 # Only exists if Bazel was run
 /bazel-out
 .vscode
+.development.env
+.production.env
+.env
 
 /node_modules
 **/front/node_modules/**
+**/front/dist/**
 **/front/node/**
 
 **/server/node_modules/**
+**/server/dist/**
 **/server/node/**
 # profiling files
 chrome-profiler-events*.json
