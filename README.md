@@ -10,3 +10,5 @@
 3. В папку /server добавляем .development.env и .production.env (их скину в чат)
 4. Для запуска сервера -> прописать команду npm run start:dev `http://localhost:5000/`
 5. Для запуска фронтенда -> npm run start -> перейти на `http://localhost:4200/`
+
+6. База данных использовалась PostgreSQL локальная.
