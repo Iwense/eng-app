@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http'
 import { CookieService } from 'ngx-cookie-service'
+import { User } from './models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,11 @@ export class PostDataService {
   constructor(private http:HttpClient,
               private cookie: CookieService) {
 
+  }
+
+  registrationUser(payload: User){
+    const url =  'http://localhost:5000/auth/registration'
+    return this.http.post(url, payload)
   }
 
   loginUser(email:string, password: string){

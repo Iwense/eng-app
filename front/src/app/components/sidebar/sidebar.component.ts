@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'sidebar',
@@ -6,8 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent implements OnInit {
-
-  constructor() { }
+  name: string = ''
+  constructor(
+    private cookie: CookieService
+  ) { 
+    this.name = this.cookie.get('name')
+  }
 
   ngOnInit(): void {
   }

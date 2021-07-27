@@ -26,7 +26,8 @@ export class SignInComponent implements OnInit {
               .subscribe((data: any) => {
                 console.log("data = " , data)
                 this.cookie.set('token' , data?.token)
-                this.cookie.set('email', data.email!)
+                this.cookie.set('email', data.email)
+                this.cookie.set('name', data.name)
                 this.error = ''
                 this.routes.navigate(['home'])
               },

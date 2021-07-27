@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { User } from 'src/app/models/user';
 
 @Component({
@@ -8,12 +8,33 @@ import { User } from 'src/app/models/user';
 })
 export class RegFormComponent implements OnInit {
 
-  user: User = new User()
+  @Input() email?: string = "";
+  @Input() password?: string = "";
+  @Input() name?: string = "";
+  @Input() city?: string = "";
+  @Input() error?:string = ''
+
+  @Output() clicked: EventEmitter<any> = new EventEmitter();
   
   constructor() { }
 
   reg(){
-    //TODO: click registartion
+    const submitData = {
+      email:this.email,
+      password: this.password,
+      name: this.name || "",
+      city: this.city || ""
+    } 
+    this.clicked.emit(submitData)
+    this.reset()
+  }
+
+  reset(){
+    this.email = ''
+    this.password = ''
+    this.city = ''
+    this.name = ''
+    this.error = ''
   }
 
   ngOnInit(): void {
